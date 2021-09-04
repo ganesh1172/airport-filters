@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Filter Airports</h2>
+    <h2>Filter Airport</h2>
     <div class="filters">
       <div class="check-type">
         <ul>
