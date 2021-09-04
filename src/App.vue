@@ -14,24 +14,28 @@
       </div>
     </div>
     <table>
-      <tr>
-        <th>Name</th>
-        <th>ICAO</th>
-        <th>IATA</th>
-        <th>Elev.</th>
-        <th>Lat.</th>
-        <th>Long.</th>
-        <th>Type</th>
-      </tr>
-      <tr v-for="airData in airportData" :key="airData.id">
-        <td>{{ airData.name }}</td>
-        <td>{{ airData.icao }}</td>
-        <td>{{ airData.iata }}</td>
-        <td>{{ airData.elevation }}</td>
-        <td>{{ airData.latitude }}</td>
-        <td>{{ airData.longitude }}</td>
-        <td>{{ airData.type }}</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ICAO</th>
+          <th>IATA</th>
+          <th>Elev.</th>
+          <th>Lat.</th>
+          <th>Long.</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="airData in airportData" :key="airData.id">
+          <td>{{ airData.name }}</td>
+          <td>{{ airData.icao }}</td>
+          <td>{{ airData.iata }}</td>
+          <td>{{ airData.elevation }}</td>
+          <td>{{ airData.latitude }}</td>
+          <td>{{ airData.longitude }}</td>
+          <td>{{ airData.type }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
