@@ -3,14 +3,25 @@
     <h2>Filter Airport</h2>
     <div class="filters">
       <div class="check-type">
+        <h3>Type</h3>
         <ul>
-          <li>Small</li>
-          <li>Medium</li>
-          <li>Large</li>
-          <li>Heilport</li>
-          <li>Closed</li>
-          <li>in your favorites</li>
+          <li><input type="checkbox" value="small" />Small</li>
+          <li><input type="checkbox" value="medium" />Medium</li>
+          <li><input type="checkbox" value="large" />Large</li>
+          <li><input type="checkbox" value="heilport" />Heilport</li>
+          <li><input type="checkbox" value="closed" />Closed</li>
+          <li>
+            <input type="checkbox" value="in your favorites" />in your favorites
+          </li>
         </ul>
+      </div>
+      <div class="search-type">
+        <h3>Filter by search</h3>
+        <input
+          type="text"
+          placeholder="Enter airport name..."
+          v-model="searchData"
+        />
       </div>
     </div>
     <table>
@@ -26,7 +37,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="airData in airportData" :key="airData.id">
+        <tr v-for="airData in filteredCats" :key="airData.id">
           <td>{{ airData.name }}</td>
           <td>{{ airData.icao }}</td>
           <td>{{ airData.iata }}</td>
@@ -46,7 +57,28 @@ export default {
   data() {
     return {
       airportData: data,
+      searchData: "",
     };
+  },
+  computed: {
+    filteredCats() {
+      return this.airportData.filter((c) => {
+        if (this.searchData == "") return true;
+        return c.name.toLowerCase().indexOf(this.searchData.toLowerCase()) >= 0;
+      });
+    },
   },
 };
 </script>
+
+<style scoped>
+ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+}
+</style>
