@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h2>Filter Airports</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>ICAO</th>
+        <th>IATA</th>
+        <th>Elev.</th>
+        <th>Lat.</th>
+        <th>Long.</th>
+        <th>Type</th>
+      </tr>
+      <tr v-for="airData in airportData" :key="airData.id">
+        <td>{{ airData.name }}</td>
+        <td>{{ airData.icao }}</td>
+        <td>{{ airData.iata }}</td>
+        <td>{{ airData.elevation }}</td>
+        <td>{{ airData.latitude }}</td>
+        <td>{{ airData.longitude }}</td>
+        <td>{{ airData.type }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import data from "./data.json";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      airportData: data,
+    };
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
