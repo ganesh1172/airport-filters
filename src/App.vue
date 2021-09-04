@@ -1,6 +1,18 @@
 <template>
   <div>
     <h2>Filter Airports</h2>
+    <div class="filters">
+      <div class="check-type">
+        <ul>
+          <li>Small</li>
+          <li>Medium</li>
+          <li>Large</li>
+          <li>Heilport</li>
+          <li>Closed</li>
+          <li>in your favorites</li>
+        </ul>
+      </div>
+    </div>
     <table>
       <tr>
         <th>Name</th>
