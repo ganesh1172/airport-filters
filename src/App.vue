@@ -37,7 +37,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="airData in filteredCats" :key="airData.id">
+        <tr v-for="airData in filteredData" :key="airData.id">
           <td>{{ airData.name }}</td>
           <td>{{ airData.icao }}</td>
           <td>{{ airData.iata }}</td>
@@ -61,7 +61,7 @@ export default {
     };
   },
   computed: {
-    filteredCats() {
+    filteredData() {
       return this.airportData.filter((c) => {
         if (this.searchData == "") return true;
         return c.name.toLowerCase().indexOf(this.searchData.toLowerCase()) >= 0;
