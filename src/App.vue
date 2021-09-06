@@ -47,6 +47,14 @@
         </tbody>
       </table>
     </div>
+    <div class="pagination">
+      <button @click="pagination(-1)">&#8592;</button>
+      <p>
+        {{ startRow / rowsPerPage + 1 }} out of
+        {{ filteredData.length / rowsPerPage }}
+      </p>
+      <button @click="pagination(1)">&#8594;</button>
+    </div>
   </div>
 </template>
 
@@ -66,6 +74,8 @@ export default {
         "closed",
         "in your favorites",
       ],
+      startRow: 0,
+      rowsPerPage: 4,
     };
   },
   computed: {
@@ -78,6 +88,16 @@ export default {
           (airdata) =>
             !this.checkType.length || this.checkType.includes(airdata.type)
         );
+    },
+  },
+  methods: {
+    pagination(amount) {
+      let newStartRow = this.startRow + amount * this.rowsPerPage;
+      console.log("newStartRow", newStartRow);
+      if (newStartRow >= 0 && newStartRow < this.filteredData.length) {
+        this.startRow = newStartRow;
+        console.log("new", newStartRow);
+      }
     },
   },
 };
@@ -176,6 +196,20 @@ tbody tr:nth-child(odd) {
 
 tbody tr:hover {
   background-color: #e5e8e8;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.pagination button {
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 768px) {
