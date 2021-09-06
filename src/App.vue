@@ -5,13 +5,10 @@
       <div class="check-type">
         <h3>Type</h3>
         <ul>
-          <li><input type="checkbox" value="small" />Small</li>
-          <li><input type="checkbox" value="medium" />Medium</li>
-          <li><input type="checkbox" value="large" />Large</li>
-          <li><input type="checkbox" value="heilport" />Heilport</li>
-          <li><input type="checkbox" value="closed" />Closed</li>
-          <li>
-            <input type="checkbox" value="in your favorites" />in your favorites
+          <li v-for="type in typeList" :key="type">
+            <input type="checkbox" :value="type" v-model="checkType" />{{
+              type
+            }}
           </li>
         </ul>
       </div>
@@ -58,14 +55,27 @@ export default {
     return {
       airportData: data,
       searchData: "",
+      checkType: [],
+      typeList: [
+        "small",
+        "medium",
+        "large",
+        "heliport",
+        "closed",
+        "in your favorites",
+      ],
     };
   },
   computed: {
     filteredData() {
-      return this.airportData.filter((c) => {
-        if (this.searchData == "") return true;
-        return c.name.toLowerCase().indexOf(this.searchData.toLowerCase()) >= 0;
-      });
+      return this.airportData
+        .filter((airdata) =>
+          airdata.name.toLowerCase().includes(this.searchData.toLowerCase())
+        )
+        .filter(
+          (airdata) =>
+            !this.checkType.length || this.checkType.includes(airdata.type)
+        );
     },
   },
 };
