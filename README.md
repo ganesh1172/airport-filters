@@ -1,24 +1,18 @@
-# airport-filter
+A simple single page📑 template(Demo Assignment💻) using Vuejs.
 
-## Project setup
-```
-npm install
-```
+## :zap: Installation
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+1. Clone / Download [this](https://github.com/ganesh1172/demo-assignment.git) repo.
+2. Inside the project open a terminal and run:
+   ```
+   npm install
+   ```
+   This will install all the project dependencies.
+3. To start the development server run:
+   ```
+   npm start
+   ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Support
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Show some :heart: and star the repo to support the project. Demo version:-
