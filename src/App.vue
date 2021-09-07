@@ -93,10 +93,8 @@ export default {
   methods: {
     pagination(amount) {
       let newStartRow = this.startRow + amount * this.rowsPerPage;
-      console.log("newStartRow", newStartRow);
       if (newStartRow >= 0 && newStartRow < this.filteredData.length) {
         this.startRow = newStartRow;
-        console.log("new", newStartRow);
       }
     },
   },
@@ -155,10 +153,14 @@ input[type="checkbox"] {
   color: #000;
 }
 
+.search-type {
+  width: 50%;
+}
+
 .search-type input {
   border: none;
   border-bottom: 3px solid;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-top: 0.6rem;
   outline: none;
   width: 100%;
