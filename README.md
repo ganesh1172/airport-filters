@@ -2,7 +2,7 @@ A simple single page📑 template(Demo Assignment💻) using Vuejs.
 
 ## :zap: Installation
 
-1. Clone / Download [this](https://github.com/ganesh1172/demo-assignment.git) repo.
+1. Clone / Download [this](https://airports-info.netlify.app/) repo.
 2. Inside the project open a terminal and run:
    ```
    npm install
@@ -15,4 +15,4 @@ A simple single page📑 template(Demo Assignment💻) using Vuejs.
 
 ## Support
 
-Show some :heart: and star the repo to support the project. Demo version:-
+Show some :heart: and star the repo to support the project. Demo version:- https://airports-info.netlify.app/
